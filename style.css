@@ -532,3 +532,38 @@ h1 > span {
 		margin-block-end: 0;
 	}
 }
+
+/*CONTENT*/
+.contact {
+}
+.contact__wrapper {
+}
+.contact__text {
+	text-align: center;
+}
+.contact__form {
+}
+.contact__control {
+}
+.contact__control input,
+.contact__control textarea {
+	width: 100%;
+	padding-block: 16px;
+	padding-inline: 24px;
+	border: none;
+	border-bottom: 1px solid var(--text1);
+	background: transparent;
+	font-family: "Space Grotesk", sans-serif;
+	font-size: 1rem;
+	line-height: 1.625;
+	color: var(--text1);
+}
+.contact__control > *::placeholder {
+	color: var(--text1);
+	opacity: 0.5;
+	text-transform: uppercase;
+}
+.contact__control input {
+}
+.contact__control textarea {
+}
