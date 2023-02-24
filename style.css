@@ -30,10 +30,15 @@ body {
 *::after {
 	box-sizing: inherit;
 }
+body,
+input,
+textarea,
+button {
+	font-family: "Space Grotesk", sans-serif;
+}
 
 body {
 	margin: 0;
-	font-family: "Space Grotesk", sans-serif;
 	background-color: var(--bg-body);
 	color: var(--text1);
 	font-size: var(--fs-18);
@@ -69,11 +74,18 @@ p {
 a {
 	transition: color var(--transition);
 }
-a:focus-visible {
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
 	outline: 2px solid var(--accent);
 	outline-offset: 2px;
 }
-a.underline {
+input:invalid,
+textarea:invalid {
+	outline-color: var(--invalid);
+}
+a.underline,
+button {
 	display: inline-block;
 	padding-bottom: 0.625rem;
 	font-size: 1rem;
@@ -544,6 +556,8 @@ h1 > span {
 .contact__form {
 }
 .contact__control {
+	position: relative;
+	margin-block-end: 16px;
 }
 .contact__control input,
 .contact__control textarea {
@@ -566,4 +580,31 @@ h1 > span {
 .contact__control input {
 }
 .contact__control textarea {
+	margin-block-end: 32px;
+}
+.contact__control.align-right {
+	display: flex;
+	justify-content: flex-end;
+}
+.contact__control button {
+	background-color: transparent;
+	border: none;
+}
+.contact__invalid__icon {
+	display: none;
+	position: absolute;
+	width: var(--fs-24);
+	height: var(--fs-24);
+	top: 50%;
+	right: 0;
+	translate: -50% -50%;
+}
+.contact input:focus-visible:invalid ~ .contact__invalid__icon,
+.contact textarea:focus-visible:invalid ~ .contact__invalid__icon {
+	display: inline-block;
+}
+.contact textarea:focus-visible:invalid ~ .contact__invalid__icon {
+	top: 1.2rem;
+	translate: none;
+	right: 1.5rem;
 }
